@@ -1,0 +1,92 @@
+h1 {
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #2af598, #009efd);
+}
+
+.huh {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    row-gap: 7px;
+}
+
+.overlay {
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 200px 150px 100px;
+    column-gap: 20px;
+    align-items: center;
+    border-radius: 18px;
+    transition: background-color 0.3s ease-in-out
+}
+
+.overlay:hover {
+    background-color: aquamarine;
+}
+
+.display {
+    display: inline-flex;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 30px;
+    background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+}
+
+.head-btns {
+    display: grid;
+    grid-template-columns: 200px 150px 100px 100px;
+    column-gap: 20px;
+}
+
+input,
+button {
+    height: 30px;
+    border-radius: 30px;
+    border: None
+}
+
+.date-bar {
+    cursor: pointer;
+}
+
+input {
+    padding-left: 10px;
+}
+
+.task-bar,
+.info-section,
+.date {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+    transition: transform 0.3s ease
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.1)
+}
+
+.add-btn {
+    background-color: #2af598;
+    color: white
+}
+
+.delete-all-btn,
+.delete-btn {
+    background-color: red;
+    color: azure;
+}
