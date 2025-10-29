@@ -54,7 +54,7 @@ input,
 button {
     height: 30px;
     border-radius: 30px;
-    border: None
+    border: none
 }
 
 .date-bar {
@@ -63,7 +63,7 @@ button {
 
 input {
     padding-left: 10px;
-    outline: None
+    outline: none
 }
 
 .task-bar,
@@ -92,3 +92,4 @@ button:hover {
     color: azure;
 
 }
+
