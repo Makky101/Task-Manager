@@ -63,6 +63,7 @@ button {
 
 input {
     padding-left: 10px;
+    outline: None
 }
 
 .task-bar,
@@ -89,4 +90,5 @@ button:hover {
 .delete-btn {
     background-color: red;
     color: azure;
+
 }
