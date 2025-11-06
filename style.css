@@ -1,29 +1,28 @@
-h1 {
-    font-size: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 body {
     background: linear-gradient(to right, #2af598, #009efd);
+    display: flex;
+    justify-content: center
 }
 
-.huh {
-    display: flex;
-    justify-content: center;
-    margin-top: 80px
+h1{
+    font-size: 5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 0;
 }
 
 .tasks {
     display: flex;
     flex-direction: column;
-    row-gap: 7px;
+    align-items: center;
+    row-gap: 1.2rem;
 }
 
 .overlay {
     display: grid;
-    padding: 10px;
-    grid-template-columns: 200px 150px 100px;
-    column-gap: 20px;
+    padding: 0.7rem;
+    column-gap: 9.3rem;
+    grid-template-columns: 11rem 11rem 5rem;
+    column-gap: 3rem;
     align-items: center;
     border-radius: 18px;
     transition: background-color 0.3s ease-in-out
@@ -34,26 +33,60 @@ body {
 }
 
 .display {
-    display: inline-flex;
-    padding: 20px;
+    margin-top: 6rem;
+    display: flex;
+    height: 30%;
+    width: auto;
+    padding: 0.4rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    border-radius: 30px;
+    gap: 3rem;
+    border-radius: 3%;
     background: linear-gradient(to bottom, #ff7e5f, #feb47b);
 }
-
 .head-btns {
     display: grid;
-    grid-template-columns: 200px 150px 100px 100px;
-    column-gap: 20px;
+    grid-template-columns: 11rem 11rem 5rem 5rem;
+    column-gap: 2rem;
+}
+
+@media (max-width: 480px){
+    h1{
+        font-size: 2rem;
+    }
+
+    .delete-btn{
+        width: fit-content;
+    }
+
+    .head-btns{
+        grid-template-columns: 80px 60px 50px 50px;
+        column-gap: 1.2rem;
+    }
+
+    .task-bar::placeholder{
+        font-size: 0.4rem;
+    }
+
+    .overlay{
+        grid-template-columns: 30px 50px 20px;
+        column-gap: 2rem;
+    }
+
+    .tasks{
+        row-gap: 0.1rem;
+    }
+
+    .tasks>.overlay {
+        font-size: 0.8rem;   
+    }
 }
 
 input,
 button {
-    height: 30px;
-    border-radius: 30px;
+    height: 2rem;
+    border-radius: 10px;
     border: none
 }
 
@@ -62,7 +95,8 @@ button {
 }
 
 input {
-    padding-left: 10px;
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
     outline: none
 }
 
@@ -71,6 +105,7 @@ input {
 .date {
     font-family: Arial, Helvetica, sans-serif;
 }
+
 
 button {
     transition: transform 0.3s ease
@@ -92,4 +127,5 @@ button:hover {
     color: azure;
 
 }
+
 
