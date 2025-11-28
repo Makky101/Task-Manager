@@ -13,7 +13,7 @@ addBtn.addEventListener("click", async () => {
         return;
     };
     try{
-        const response = await fetch('http://localhost:3000/send', {
+        const response = await fetch('https://task-manager-u0t5.onrender.com/send', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ async function renderTasks() {
     const taskList = document.getElementById("taskList");
     let render = '';
     taskList.innerHTML = '';
-    let response = await fetch('http://localhost:3000/load', { method: 'GET' })
+    let response = await fetch('https://task-manager-u0t5.onrender.com/load', { method: 'GET' })
     let result = await response.json()
     result.forEach(task => {
         const { id, duty, datetime } = task
@@ -75,7 +75,7 @@ async function renderTasks() {
         button.addEventListener("click", async () => {
             try {
                 const id = button.dataset.id;
-                const response = await fetch(`http://localhost:3000/delete/${id}`, { method: 'DELETE' });
+                const response = await fetch(`https://task-manager-u0t5.onrender.com/delete/${id}`, { method: 'DELETE' });
                 const result = await response.json()
                 console.log(result.message)
             } catch (err) {
@@ -87,7 +87,7 @@ async function renderTasks() {
 };
 
 async function deleteAll() {
-    const response = await fetch('http://localhost:3000/delete', { method: 'DELETE' });
+    const response = await fetch('https://task-manager-u0t5.onrender.com/delete', { method: 'DELETE' });
     const result = await response.json();
     console.log(result.message); 
     renderTasks()
