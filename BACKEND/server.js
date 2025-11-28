@@ -1,24 +1,25 @@
 require('dotenv').config();
-const { Client } = require('pg');
+const { Pool } = require('pg');
 const express = require('express')
 const app = express()
 const cors = require('cors')
 app.use(express.json());
 app.use(cors())
 
-const client = new Client({
+
+const pool = new Pool({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     host: process.env.DB_HOST,
     database: process.env.DB_DATABASE,
-    port: 5432 //change to any port you use for you database
+    port: process.env.DB_PORT
 });
 
-client.connect()
+const PORT = process.env.PORT || 3000;
 
 app.get('/load', async (req, res) => {
     try {
-        let result = await client.query('SELECT * FROM task');
+        let result = await pool.query('SELECT * FROM task');
         res.json(result.rows);
     } catch (err) {
         console.error(err);
@@ -33,7 +34,7 @@ app.post('/send',async (req, res) => {
         const time = req.body.date
         const cmd = 'INSERT INTO task(duty, datetime) VALUES($1, $2)';
         const values = [duty, time]
-        await client.query(cmd, values)
+        await pool.query(cmd, values)
         
         res.json({ message: 'Task received successfully' });
 
@@ -49,7 +50,7 @@ app.post('/send',async (req, res) => {
 
 app.delete('/delete',async (req, res) => {
     try{
-        let result = await client.query('DELETE FROM task');
+        let result = await pool.query('DELETE FROM task');
 
         if (result.rowCount === 0) {
             return res.status(404).json({ message: 'Task not found' });
@@ -72,7 +73,7 @@ app.delete('/delete/:id', async (req, res) => {
     try {
         const cmd = 'DELETE FROM task where id = $1';
         const value = [+req.params.id]
-        const result = await client.query(cmd, value)
+        const result = await pool.query(cmd, value)
 
         console.log('Task deleted')
 
@@ -92,11 +93,7 @@ app.delete('/delete/:id', async (req, res) => {
 
 })
 
-app.listen(3000,() => {
-    console.log('Server running on port 3000')
+app.listen(PORT,() => {
+    console.log(`Server running on port 3000 ${PORT}`)
 })
 
-process.on('SIGINT', async () => {
-    await client.end()
-    process.exit(0)
-})
