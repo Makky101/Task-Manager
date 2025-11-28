@@ -16,7 +16,7 @@ const pool = new Pool({
     ssl: { rejectUnauthorized: false }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 app.get('/load', async (req, res) => {
     try {
