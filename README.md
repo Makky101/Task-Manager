@@ -10,14 +10,6 @@ A simple and efficient **Task Manager** web application built with **HTML, Vanil
 
 https://makky101.github.io/Task-Manager/
 
-### **Backend API (Render)**
-
-```
-https://task-manager-u0t5.onrender.com
-```
-
----
-
 ## 🚀 Features
 
 * Add tasks
